@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import LoginPage from './pages/LoginPage';
 import { Dashboard } from './modules/home/Dashboard';
@@ -13,10 +13,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route index element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<MainLayout />}>
           {/* ── Home / Dashboard ────────────────────────────────── */}
-          <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="notifications" element={<ModulePage />} />
           <Route path="analytics/data" element={<ModulePage />} />
           <Route path="support/tickets" element={<ModulePage />} />
