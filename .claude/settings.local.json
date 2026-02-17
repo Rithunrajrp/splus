@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(del \"E:\\greenbotz\\splus\\splus-web\\react-ui\\src\\layouts\\NavPanel.tsx\")",
+      "Bash(npm run build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

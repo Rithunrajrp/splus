@@ -1,0 +1,340 @@
+@import 'tailwindcss';
+
+/* ── Login Sign-In button ────────────────────────────────────────────────── */
+.login-sign-in-btn {
+  width: 100%;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  color: var(--primary-brand);
+  background: #ffffff;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  transition: color 0.45s ease;
+}
+
+.login-sign-in-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--primary-brand);
+  transition: width 0.45s ease;
+  display: block;
+  z-index: -1;
+}
+
+.login-sign-in-btn:hover::before {
+  width: 100%;
+}
+
+.login-sign-in-btn:hover {
+  color: #ffffff;
+}
+
+/* ── Get OTP button — same slide-fill hover as Sign In ───────── */
+.otp-btn {
+  height: 50px;
+  padding: 0 16px;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+  border: 2px solid var(--primary-brand);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  color: var(--primary-brand);
+  background: #ffffff;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.otp-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--primary-brand);
+  transition: width 0.35s ease;
+  display: block;
+  z-index: -1;
+}
+
+.otp-btn:hover::before {
+  width: 100%;
+}
+
+.otp-btn:hover {
+  color: #ffffff;
+  border-color: var(--primary-brand);
+}
+
+.login-sign-in-btn svg {
+  height: 1em;
+  width: 1em;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.login-sign-in-btn:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  33%       { transform: translateY(-18px) scale(1.03); }
+  66%       { transform: translateY(10px) scale(0.97); }
+}
+.animate-float { animation: float var(--float-duration, 20s) ease-in-out infinite; }
+
+:root {
+  /* Dark Navy Enterprise Palette */
+  --primary-brand: #2563eb;
+  /* Blue-600 — professional, high-contrast */
+  --sidebar-bg: #0d1b2e;
+  /* Dark navy sidebar */
+  --sidebar-fg: #e2e8f0;
+  /* Light text on navy */
+
+  --app-canvas: #f0f4f8;
+  /* Cool off-white canvas */
+  --surface-white: #ffffff;
+  --border-subtle: #e1e7ef;
+  /* Cool-gray border */
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--app-canvas);
+  color: var(--text-primary);
+}
+
+/* Professional Enterprise Utilities */
+.enterprise-card {
+  @apply bg-white border border-gray-300 rounded-lg;
+  /* NO shadow-md - using border only */
+}
+
+.enterprise-button-primary {
+  background-color: var(--primary-brand);
+  @apply text-white font-medium rounded-md px-4 py-2 transition-colors duration-200;
+}
+
+.enterprise-button-primary:hover {
+  background-color: #1d4ed8;
+  /* Blue-700 darker on hover */
+}
+
+.enterprise-button-secondary {
+  @apply bg-white text-gray-700 border border-gray-300 font-medium rounded-md px-4 py-2 transition-colors duration-200;
+}
+
+.enterprise-button-secondary:hover {
+  @apply bg-gray-50;
+}
+
+.enterprise-input {
+  @apply block w-full rounded-md border-gray-300 shadow-sm sm:text-sm;
+  border: 1px solid var(--border-subtle);
+}
+
+.enterprise-input:focus {
+  border-color: var(--primary-brand);
+  box-shadow: 0 0 0 1px var(--primary-brand);
+}
+
+/* Premium Dark Sidebar */
+.enterprise-sidebar {
+  background-color: var(--sidebar-bg);
+  @apply text-gray-300;
+}
+
+/* Professional Topbar */
+.enterprise-topbar {
+  @apply bg-white border-b;
+  border-color: var(--border-subtle);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* Institutional Page Header */
+.enterprise-page-header {
+  @apply bg-white border-b px-6 py-4;
+  border-color: var(--border-subtle);
+}
+
+/* Professional Badges - Muted, Not Bright */
+.enterprise-badge-primary {
+  background-color: #dbeafe;
+  color: var(--primary-brand);
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+.enterprise-badge-success {
+  @apply inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700;
+}
+
+.enterprise-badge-warning {
+  @apply inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700;
+}
+
+.enterprise-badge-danger {
+  @apply inline-flex items-center rounded-full bg-red-50 px-2.5 py-0.5 text-xs font-medium text-red-700;
+}
+
+.enterprise-table-row {
+  @apply hover:bg-gray-50 transition-colors duration-150;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle Scrollbar - Professional, Not Toy */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.4);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.6);
+}
+
+/* Loading Skeleton - Muted */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+/* Professional Data Density */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-900 font-semibold;
+}
+
+/* Remove excessive spacing - we're institutional, not a landing page */
+.data-dense {
+  @apply space-y-3;
+}
+
+/* Popover Animation - "Pro" Interaction */
+@keyframes popover-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popover-enter {
+  animation: popover-enter 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Sidebar teamspace navigation
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Smooth folder expand / collapse (CSS grid trick) ────────────── */
+.sidebar-collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity            0.18s ease;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.sidebar-collapsible.sidebar-collapsible-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.sidebar-collapsible-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Active item – frosted glass pill ────────────────────────────── */
+.sidebar-item-active {
+  /* backdrop-filter applied via inline style for cross-browser compat */
+}
+
+/* ── Recently-used shimmer ring (theme-agnostic white glow) ──────── */
+@keyframes sidebar-recent-shimmer {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.13),
+      inset 0 0 0 0   rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.23),
+      inset 0 0 6px   rgba(255, 255, 255, 0.04);
+  }
+}
+
+.sidebar-item-recent {
+  animation: sidebar-recent-shimmer 3.2s ease-in-out infinite;
+}
+
+/* The pulse ring is a child span positioned over the item */
+.sidebar-recent-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  animation: sidebar-recent-shimmer 3.2s ease-in-out infinite;
+}
+
+/* ── Nav item hover micro-interaction ────────────────────────────── */
+.sidebar-nav-item {
+  /* cursor + selection suppression */
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar-nav-item:active {
+  transform: scale(0.985);
+  transition: transform 0.06s ease;
+}
